@@ -266,6 +266,7 @@ void tulangAyam(float p, float l, float t, float x, float y, float z)
 void sheep1()
 {
     glPushMatrix();
+        glTranslated(0, -10, 0);
         glRotated(-10,1,0,0);
         glPushMatrix();
         // badan
@@ -369,7 +370,7 @@ void sheep1()
 void sheep2()
 {
     glPushMatrix();
-    glTranslated(0,0,11);
+    glTranslated(0,-5,11);
     glScaled(0.9, 0.9, 0.9);
     glRotated(-10,1,0,0);
         //kepala
@@ -642,6 +643,7 @@ void sheep3()
 void sheep4()
 {
     glPushMatrix();
+    glScaled(1,1,0.9);
     glTranslated(0,0,18);
     glRotated(-10,1,0,0);
         //kepala
@@ -951,7 +953,7 @@ void walkSheep(int m)
 {
     glPushMatrix();
     
-        glTranslated(0, -165, 0);
+        glTranslated(0, -0, 0);
 
         glPushMatrix();
         
