@@ -97,8 +97,16 @@ void createBackground()
     cylinder(0, -70, 0, 16, 5, 0.8, 0.6, 0, 1);
 
     // make profile player
-    cylinder(0, 117.5, -9.9, 22, 26, 0.8, 0.6, 0, 1);
-    cylinder(0, -117.5, -9.9, 22, 26, 0.8, 0.6, 0, 1);
+    cylinder(0, 117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
+    cylinder(0, -117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
+
+    // make ex-foto profile
+    //top
+    cylinder(0, 117.5, 14.9, 20, 5, 1, 1, 1, 1);
+    cylinder(0, 117.5, 16.9, 18, 5, 1, 0, 0, 1);
+    // bottom
+    cylinder(0, -117.5, 14.9, 20, 5, 1, 1, 1, 1);
+    cylinder(0, -117.5, 16.9, 18, 5, 0, 0, 1, 1);
 
     glPopMatrix();
     
@@ -118,13 +126,17 @@ void createBackground()
     makeBox(37.5, 0, 0, 5, 5, 250, 0, 1, 0, 1);
     
     // make midle line
-    makeBox(0, 0, -1, 125, 5, 3, 1, 0, 0, 0.5);
+    makeBox(0, 0, -1, 124.9, 5, 3, 1, 0, 0, 0.5);
 
     // make bar life player
     makeBox(-7.5, 117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
     makeBox(-7.5, -117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
     makeBox(-7.5, 117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
     makeBox(-7.5, -117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
+
+    // make bar life player loading
+    makeBox(-7.5, 117.5, 12, 132, 15, 10, 0, 0.6, 0, 1);
+    makeBox(-7.5, -117.5, 12, 132, 15, 10, 0, 0.6, 0, 1);
 
     glPopMatrix();
 

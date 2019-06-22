@@ -32,6 +32,7 @@ float alpha = 5;
 // Transparant Objek
 float alphaTrans = 1;
 
+
 void setMaterialColor(float r, float g, float b, float a)
 {
     GLfloat mat_specular[] = {r, g, b, a };
