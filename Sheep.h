@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include<stdio.h>
+#include <stdio.h>
  
 using namespace std;
 
@@ -54,5 +54,9 @@ class Sheep
             return life;
         }
 
-        
+        void  setDead()
+        {
+            life = false;
+        }
+
 };
