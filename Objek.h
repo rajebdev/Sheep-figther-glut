@@ -55,13 +55,12 @@ void makeBox(float x, float y, float z, float p, float l, float t, float colR, f
 
 void cylinder(float x, float y, float z, float alas, float tinggi, float colR, float colG, float colB, float colA)
 {
-    
     glPushMatrix();
-        glTranslated(x, y, z);
+        glTranslated(x, y, z+2.5);
         setMaterialColor(colR, colG, colB, colA);
         glutSolidCone(alas, 0, 50, 1);
         GLUquadricObj *obj = gluNewQuadric();
-        gluCylinder(obj, alas, alas, alas, 50, 50);
+        gluCylinder(obj, alas, alas, tinggi, 50, 50);
         glTranslated(0, 0, tinggi);
         glutSolidCone(alas, 0, 50, 1);
     glPopMatrix();
@@ -72,8 +71,37 @@ void createBackground()
 {
     // make ground
     makeBox(0, 0, -5, 165, 5, 250, 0, 0.5, 0, 1);
+    makeBox(0, 135, 5, 165, 25, 20, 0, 0.8, 1, 1);
+    makeBox(0, -135, 5, 165, 25, 20, 0, 0.8, 1, 1);
+
+    
     // make board
-    makeBox(-62.5, 0, 0, 40, 5, 250, 0, 1, 0, 1);
+    glPushMatrix();
+    glTranslated(-62.5, 0, 0);
+    makeBox(0, 0, 0, 40, 5, 250, 0, 1, 0, 1);
+
+    // make wall wood
+    makeBox(-2.5, 0, 12.5, 35, 20, 7.5, 0.5, 0.5, 0, 1);
+
+    // make board sheep cooming
+    // top
+    cylinder(0, 40, 2, 11, 5, 0.2, 0.2, 0, 1);
+    cylinder(0, 70, 2, 14, 5, 0.2, 0.2, 0, 1);
+    cylinder(0, 40, 0, 13, 5, 0.8, 0.6, 0, 1);
+    cylinder(0, 70, 0, 16, 5, 0.8, 0.6, 0, 1);
+    
+    // bottom
+    cylinder(0, -40, 2, 11, 5, 0.2, 0.2, 0, 1);
+    cylinder(0, -70, 2, 14, 5, 0.2, 0.2, 0, 1);
+    cylinder(0, -40, 0, 13, 5, 0.8, 0.6, 0, 1);
+    cylinder(0, -70, 0, 16, 5, 0.8, 0.6, 0, 1);
+
+    // make profile player
+    cylinder(0, 117.5, -9.9, 22, 26, 0.8, 0.6, 0, 1);
+    cylinder(0, -117.5, -9.9, 22, 26, 0.8, 0.6, 0, 1);
+
+    glPopMatrix();
+    
     // make border top
     glPushMatrix();
     glTranslated(20, 0, 0);
@@ -88,17 +116,18 @@ void createBackground()
     makeBox(-12.5, 0, 0, 5, 5, 250, 0, 1, 0, 1);
     makeBox(12.5, 0, 0, 5, 5, 250, 0, 1, 0, 1);
     makeBox(37.5, 0, 0, 5, 5, 250, 0, 1, 0, 1);
-
+    
     // make midle line
     makeBox(0, 0, -1, 125, 5, 3, 1, 0, 0, 0.5);
 
-    // make wall wood
-    makeBox(-85, 0, 12.5, 35, 20, 7.5, 0.3, 0.3, 0, 1);
-
-    cylinder(0, 0, 30, 10, 10, 1, 1, 0, 1);
-
+    // make bar life player
+    makeBox(-7.5, 117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
+    makeBox(-7.5, -117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
+    makeBox(-7.5, 117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
+    makeBox(-7.5, -117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
 
     glPopMatrix();
+
 }
 
 
