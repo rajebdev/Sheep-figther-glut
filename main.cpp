@@ -46,45 +46,6 @@ void setView()
 
 }
 
-void setModel(){
-    if (model == 1)
-    {
-        sheep1();
-    }
-    else if (model == 2)
-    {
-        sheep2();
-    }
-    else if (model == 3)
-    {
-        sheep3();
-    }
-    else if (model == 4)
-    {
-        sheep4();
-    }
-    else if (model == 5)
-    {
-        sheep1();
-    }
-    else if (model == 6)
-    {
-        sheep2();
-    }
-    else if (model == 7)
-    {
-        sheep3();
-    }
-    else if (model == 8)
-    {
-        sheep4();
-    }
-    else if (model == 9)
-    {
-        ayam();
-    }
-}
-
 void display()
 {
     setView();
@@ -99,7 +60,10 @@ void display()
     glRotated(rotY, 0, 1, 0);
     glRotated(rotZ, 0, 0, 1);
 
-    setModel();
+    glPushMatrix();
+    glTranslated(0, objekMove, 0);
+    walkSheep(0);
+    glPopMatrix();
 
     createBackground();
 

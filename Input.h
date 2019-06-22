@@ -51,9 +51,9 @@ void kunci(unsigned char key, int x, int y)
     }
     if (key == ',')
     {
-        loadTime -= 1;
+        objekMove += 5;
         clearCMD();
-        cout << loadTime << endl;
+        cout << objekMove << endl;
     }
 
     display();

@@ -108,8 +108,8 @@ void createBackground()
 {
     // make ground
     makeBox(0, 0, -5, 165, 5, 250, 0, 0.5, 0, 1);
-    makeBox(0, 135, 5, 165, 25, 20, 0, 0.8, 1, 1);
-    makeBox(0, -135, 5, 165, 25, 20, 0, 0.8, 1, 1);
+    makeBox(0, 135, 9, 165, 33, 20, 0, 0.8, 1, 1);
+    makeBox(0, -135, 9, 165, 33, 20, 0, 0.8, 1, 1);
 
     
     // make board
@@ -140,8 +140,8 @@ void createBackground()
     createLoadingSheep(0, -70, 9, 14.5, loadTime, 0, 1, 1, 0.7);
 
     // make profile player
-    cylinder(0, 117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
-    cylinder(0, -117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
+    cylinder(0, 117.5, -9.9, 22, 35, 0.8, 0.6, 0, 1);
+    cylinder(0, -117.5, -9.9, 22, 35, 0.8, 0.6, 0, 1);
 
     // make ex-foto profile
     //top
@@ -172,14 +172,14 @@ void createBackground()
     makeBox(0, 0, -1, 124.9, 5, 3, 1, 0, 0, 0.5);
 
     // make bar life player
-    makeBox(-7.5, 117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
-    makeBox(-7.5, -117.5, 10, 140, 15, 15, 0.8, 0.6, 0, 1);
-    makeBox(-7.5, 117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
-    makeBox(-7.5, -117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
+    makeBox(-7.5, 117.5, 14, 140, 23, 15, 0.8, 0.6, 0, 1);
+    makeBox(-7.5, -117.5, 14, 140, 23, 15, 0.8, 0.6, 0, 1);
+    makeBox(-7.5, 117.5, 15, 136, 23, 13, 0.5, 0.2, 0, 1);
+    makeBox(-7.5, -117.5, 15, 136, 23, 13, 0.5, 0.2, 0, 1);
 
     // make bar life player loading
-    makeBox(-1-((119-(119*(lifeBarA/100)))/2), 117.5, 12, 119*(lifeBarA/100), 15, 10, 0, 0.6, 0, 1);
-    makeBox(-1-((119-(119*(lifeBarB/100)))/2), -117.5, 12, 119*(lifeBarB/100), 15, 10, 0, 0.6, 0, 1);
+    makeBox(-1-((119-(119*(lifeBarA/100)))/2), 117.5, 16, 119*(lifeBarA/100), 22, 10, 0, 0.6, 0, 1);
+    makeBox(-1-((119-(119*(lifeBarB/100)))/2), -117.5, 16, 119*(lifeBarB/100), 22, 10, 0, 0.6, 0, 1);
 
     glPopMatrix();
 
@@ -903,6 +903,82 @@ void ayam()
         glPopMatrix();
     glPopMatrix();
 
+
+    glPopMatrix();
+}
+
+void setObjek(int m)
+{
+    if (model == 1)
+    {
+        sheep1();
+    }
+    else if (model == 2)
+    {
+        sheep2();
+    }
+    else if (model == 3)
+    {
+        sheep3();
+    }
+    else if (model == 4)
+    {
+        sheep4();
+    }
+    else if (model == 5)
+    {
+        sheep1();
+    }
+    else if (model == 6)
+    {
+        sheep2();
+    }
+    else if (model == 7)
+    {
+        sheep3();
+    }
+    else if (model == 8)
+    {
+        sheep4();
+    }
+    else if (model == 9)
+    {
+        ayam();
+    }
+}
+
+void walkSheep(int m)
+{
+    glPushMatrix();
+    
+        glTranslated(0, -165, 0);
+
+        glPushMatrix();
+        
+            glRotated(-10, 1, 0, 0);
+            glRotated(-90, 1, 0, 0);
+            glRotated(180, 0, 0, 1);
+            glScaled(0.75, 0.75, 0.75);
+            glTranslated(7.5, 15, 0);
+
+            setObjek(m);
+        
+        glPopMatrix();
+
+    glPopMatrix();
+}
+
+void iconSheep(int m)
+{
+    glPushMatrix();
+
+    glRotated(-10, 1, 0, 0);
+    glRotated(-90, 1, 0, 0);
+    glRotated(180, 0, 0, 1);
+    glScaled(0.75, 0.75, 0.75);
+    glTranslated(7.5, 15, 0);
+
+    setObjek(m);
 
     glPopMatrix();
 }

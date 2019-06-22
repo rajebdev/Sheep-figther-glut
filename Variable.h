@@ -29,3 +29,6 @@ float lifeBarB = 100;
 
 // loading sheep
 float loadTime = 10;
+
+// move objek
+float objekMove = 0;
