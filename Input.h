@@ -38,6 +38,17 @@ void kunci(unsigned char key, int x, int y)
     {
         model = key - 48;
     }
+    if (key==48){
+        rotX = 0;
+        rotY = 0;
+        rotZ = 0;
+        
+        angle = 0.0f;
+        lx=0.0f,lz=-1.0f;
+        x=0.0f, z=5.0f;
+        deltaAngle = 0.0f;
+        xOrigin = -1;
+    }
 
     display();
 }
