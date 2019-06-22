@@ -841,43 +841,45 @@ void display()
     glRotated(rotZ, 0, 0, 1);
 
     // glRotatef(sudut, 0,1,0);
+    glPushMatrix();
 
-    if (model == 1)
-    {
-        sheep1();
-    }
-    else if (model == 2)
-    {
-        sheep2();
-    }
-    else if (model == 3)
-    {
-        sheep3();
-    }
-    else if (model == 4)
-    {
-        sheep4();
-    }
-    else if (model == 5)
-    {
-        sheep1();
-    }
-    else if (model == 6)
-    {
-        sheep2();
-    }
-    else if (model == 7)
-    {
-        sheep3();
-    }
-    else if (model == 8)
-    {
-        sheep4();
-    }
-    else if (model == 9)
-    {
-        ayam();
-    }
+        if (model == 1)
+        {
+            sheep1();
+        }
+        else if (model == 2)
+        {
+            sheep2();
+        }
+        else if (model == 3)
+        {
+            sheep3();
+        }
+        else if (model == 4)
+        {
+            sheep4();
+        }
+        else if (model == 5)
+        {
+            sheep1();
+        }
+        else if (model == 6)
+        {
+            sheep2();
+        }
+        else if (model == 7)
+        {
+            sheep3();
+        }
+        else if (model == 8)
+        {
+            sheep4();
+        }
+        else if (model == 9)
+        {
+            ayam();
+        }
+    glPopMatrix();
 
     glutSwapBuffers();
 }
@@ -908,7 +910,7 @@ void kunci(unsigned char key, int x, int y)
     {
         rotZ += 5;
     }
-    if (key == 'x' || key == 'Z')
+    if (key == 'x' || key == 'X')
     {
         rotZ -= 5;
     }
@@ -996,8 +998,8 @@ void myinit()
 {
     glClearColor (0, 0.8, 1, 1);
     // lighting
-    GLfloat light_position_diff[] = { 0.0, 10.0, 5.0, 0.0};
-    GLfloat light_position_spec[] = { 0.0, -10.0, 5.0, 0.0 };
+    GLfloat light_position_diff[] = { 10.0, 10.0, 5.0, 0.0};
+    GLfloat light_position_spec[] = { 10.0, -10.0, 5.0, 0.0 };
     GLfloat diffuse_light[] = { 0.8, 0.8, 1.0, 0.5 };
     GLfloat specular_light[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat ambient_light[] = { 0.9, 0.9, 0.9, 1.0 };
