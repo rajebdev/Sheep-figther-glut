@@ -54,7 +54,7 @@ void setView()
         gluLookAt(pos[0],pos[1],pos[2]+0.5,pos[0]+viewDir[0],pos[1]+viewDir[1],pos[2]+viewDir[2],0,0,1);
     }
     else{
-        glOrtho (-105, 105, -105, 105, -1000.0, 1000.0);
+        glOrtho (-105, 105, -140, 140, -1000.0, 1000.0);
     }
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -130,9 +130,9 @@ void reshape (int w, int h)
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity();
     if (w <= h)
-        glOrtho (-105, 105, -105*(GLfloat)h/(GLfloat)w, 105*(GLfloat)h/(GLfloat)w, -100.0, 100.0);
+        glOrtho (-105, 105, -140*(GLfloat)h/(GLfloat)w, 140*(GLfloat)h/(GLfloat)w, -100.0, 100.0);
     else
-        glOrtho (-105*(GLfloat)w/(GLfloat)h, 105*(GLfloat)w/(GLfloat)h, -105, 105, -100.0, 100.0);
+        glOrtho (-105*(GLfloat)w/(GLfloat)h, 105*(GLfloat)w/(GLfloat)h, -140, 140, -100.0, 100.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
