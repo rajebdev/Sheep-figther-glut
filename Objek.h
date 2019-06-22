@@ -44,6 +44,23 @@ void cube(float p=0, float l=0, float t=0)
 
 }
 
+void elips(float p, float l, float t)
+{
+    glPushMatrix();
+    glScalef(p, t, l);
+    glutSolidSphere(1, 36, 36);
+    glPopMatrix();
+}
+
+void cone(float p, float l, float t)
+{
+    glPushMatrix();
+    glRotated(-90, 1, 0, 0);
+    glScalef(p, l, t);
+    glutSolidCone(1, 1, 36, 36);
+    glPopMatrix();
+}
+
 void makeBox(float x, float y, float z, float p, float l, float t, float colR, float colG, float colB, float colA)
 {
     glPushMatrix();
@@ -96,6 +113,9 @@ void createBackground()
     cylinder(0, -40, 0, 13, 5, 0.8, 0.6, 0, 1);
     cylinder(0, -70, 0, 16, 5, 0.8, 0.6, 0, 1);
 
+    // make sheep loading
+    createLoadingSheep();
+
     // make profile player
     cylinder(0, 117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
     cylinder(0, -117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);
@@ -142,23 +162,6 @@ void createBackground()
 
 }
 
-
-void elips(float p, float l, float t)
-{
-    glPushMatrix();
-    glScalef(p, t, l);
-    glutSolidSphere(1, 36, 36);
-    glPopMatrix();
-}
-
-void cone(float p, float l, float t)
-{
-    glPushMatrix();
-    glRotated(-90, 1, 0, 0);
-    glScalef(p, l, t);
-    glutSolidCone(1, 1, 36, 36);
-    glPopMatrix();
-}
 
 void bulu(float p, float l, float t, float x, float y, float z)
 {
