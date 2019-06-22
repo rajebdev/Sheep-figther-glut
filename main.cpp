@@ -6,8 +6,11 @@
 #endif
 #include <iostream>
 #include <math.h>
+#include "Sheep.h"
 
 using namespace std;
+
+Sheep mysheep = Sheep(1);
 
 float sudut=0;
 float rotX=0, rotY=0, rotZ=0;

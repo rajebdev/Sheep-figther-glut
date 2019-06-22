@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1558934758 source:d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\main.cpp
+1561184126 source:d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
 	<math.h>
+	"Sheep.h"
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h
 	<winresrc.h>
@@ -224,4 +225,24 @@
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
+
+1561184173 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\sheep.h
+	<iostream>
+	<stdlib.h>
+	<time.h>
+	<stdio.h>
+
+1341006776 c:\program files (x86)\codeblocks\mingw\include\time.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
 
