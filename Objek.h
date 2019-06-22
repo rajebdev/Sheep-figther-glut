@@ -145,11 +145,11 @@ void createBackground()
 
     // make ex-foto profile
     //top
-    cylinder(0, 117.5, 14.9, 20, 5, 1, 1, 1, 1);
-    cylinder(0, 117.5, 16.9, 18, 5, 1, 0, 0, 1);
+    cylinder(0, 117.5, 14.9, 20, 13, 1, 1, 1, 1);
+    cylinder(0, 117.5, 16.9, 18, 13, 1, 0, 0, 1);
     // bottom
-    cylinder(0, -117.5, 14.9, 20, 5, 1, 1, 1, 1);
-    cylinder(0, -117.5, 16.9, 18, 5, 0, 0, 1, 1);
+    cylinder(0, -117.5, 14.9, 20, 13, 1, 1, 1, 1);
+    cylinder(0, -117.5, 16.9, 18, 13, 0, 0, 1, 1);
 
     glPopMatrix();
     
