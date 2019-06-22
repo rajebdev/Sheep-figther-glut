@@ -6,6 +6,7 @@
 #endif
 #include <iostream>
 #include <math.h>
+#include <cstdlib>
 #include "Sheep.h"
 
 using namespace std;
@@ -21,6 +22,11 @@ void setMaterialColor(float r, float g, float b, float a)
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+}
+
+void clearCMD()
+{
+    system("cls");
 }
 
 #include "Objek.h"

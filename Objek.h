@@ -83,6 +83,26 @@ void cylinder(float x, float y, float z, float alas, float tinggi, float colR, f
     glPopMatrix();
 }
 
+void createLoadingSheep(float x, float y, float z, float r, float loadTime, float colR, float colG, float colB, float colA)
+{
+    glPushMatrix();
+    glTranslated(x, y, z);
+    glRotated(90,0,0,1);
+    setMaterialColor(colR, colG, colB, colA);
+    for (float i = 0; i < 360*(loadTime/10); i++)
+    {
+        glPushMatrix();
+
+        glRotated(-i,0,0,1);
+        glTranslated(r, 0, 0);
+        glutSolidSphere(1.5, 36, 36);
+
+        glPopMatrix();
+    }
+
+    glPopMatrix();
+}
+
 
 void createBackground()
 {
@@ -114,7 +134,10 @@ void createBackground()
     cylinder(0, -70, 0, 16, 5, 0.8, 0.6, 0, 1);
 
     // make sheep loading
-    createLoadingSheep();
+    // top
+    createLoadingSheep(0, 70, 9, 14.5, loadTime, 0, 1, 1, 0.7);
+    //bottom
+    createLoadingSheep(0, -70, 9, 14.5, loadTime, 0, 1, 1, 0.7);
 
     // make profile player
     cylinder(0, 117.5, -9.9, 22, 28, 0.8, 0.6, 0, 1);

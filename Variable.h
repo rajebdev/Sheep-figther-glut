@@ -23,8 +23,9 @@ float alphaTrans = 1;
 
 // Game play
 
-// life
+// loading life
 float lifeBarA = 100;
 float lifeBarB = 100;
 
-// 
+// loading sheep
+float loadTime = 10;

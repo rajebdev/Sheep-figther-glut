@@ -49,25 +49,11 @@ void kunci(unsigned char key, int x, int y)
         deltaAngle = 0.0f;
         xOrigin = -1;
     }
-    if (key == ',' && lifeBarA >= 5)
+    if (key == ',')
     {
-        lifeBarA -= 5;
-        cout << lifeBarA << endl;
-    }
-    if (key == '.' && lifeBarA <= 95)
-    {
-        lifeBarA += 5;
-        cout << lifeBarA << endl;
-    }
-    if (key == '[' && lifeBarB >= 5)
-    {
-        lifeBarB -= 5;
-        cout << lifeBarB << endl;
-    }
-    if (key == ']' && lifeBarB <= 95)
-    {
-        lifeBarB += 5;
-        cout << lifeBarB << endl;
+        loadTime -= 1;
+        clearCMD();
+        cout << loadTime << endl;
     }
 
     display();
