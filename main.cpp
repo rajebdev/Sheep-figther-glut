@@ -165,6 +165,11 @@ void myinit()
 
 }
 
+void myIdle()
+{
+    display();
+}
+
 int main(int argc, char* argv[])
 {
 	glutInit(&argc,argv);
