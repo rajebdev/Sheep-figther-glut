@@ -19,40 +19,24 @@ float x=0.0f, z=5.0f;
 float deltaAngle = 0.0f;
 int xOrigin = -1;
 
-int model = 0;
+int model = 1;
 
-void setMaterialColor(float r, float g, float b)
+float pos[] = {2,10.5,1.5};
+float viewDir[] = {0,-1,0};
+float alpha = 5;
+
+float alphaTrans = 1;
+int viewMode = 1;
+
+void setMaterialColor(float r, float g, float b, float a)
 {
-    GLfloat mat_specular[] = { r, g, b, 1 };
-    GLfloat mat_shininess[] = { 10 };
-    GLfloat mat_diffuse[] = { r, g, b, 1 };
+    GLfloat mat_specular[] = {r, g, b, a };
+    GLfloat mat_shininess[] = { 10.0f };
+    GLfloat mat_diffuse[] = {r, g, b, a };
 
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-}
-
-void setLigthingColor(float r, float g, float b)
-{
-    glPushMatrix();
-
-    glRotatef(-sudut, 0,1,0);
-    glRotated(-rotZ, 0, 0, 1);
-    glRotated(-rotY, 0, 1, 0);
-    glRotated(-rotX, 1, 0, 0);
-
-    GLfloat light_position_diff[] = { 0, 20, 100, 0.0 };
-    GLfloat diffuse_light[] = { r, g, b, 1.0 };
-    GLfloat light_position_spec[] = { 0, 20, 100, 0.0 };
-    GLfloat specular_light[] = { r, g, b, 1.0 };
-    GLfloat ambient_light[] = { 1, 1, 1, 1.0 };
-
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position_diff);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
-    glLightfv(GL_LIGHT1, GL_POSITION, light_position_spec);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, specular_light);
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT,ambient_light);
-    glPopMatrix();
 }
 
 void cube(float p=0, float l=0, float t=0)
@@ -122,11 +106,11 @@ void bulu(float p, float l, float t, float x, float y, float z)
     glPushMatrix();
         if (model == 1 || model == 2 || model == 3 || model == 4 || model == 9)
         {
-            setMaterialColor(p/0.75,p/0.75,p/0.75);
+            setMaterialColor(p/0.75,p/0.75,p/0.75, alphaTrans);
         }
         else
         {
-            setMaterialColor(1,1,1);
+            setMaterialColor(1,1,1, alphaTrans);
         }
         glTranslated(x,y,z);
         elips(p,l,t);
@@ -136,7 +120,7 @@ void bulu(float p, float l, float t, float x, float y, float z)
 void tubuhHitam(float p, float l, float t, float x, float y, float z)
 {
     glPushMatrix();
-    setMaterialColor(0,0,0);
+    setMaterialColor(0,0,0, alphaTrans);
         glTranslated(x,y,z);
         elips(p,l,t);
     glPopMatrix();
@@ -170,7 +154,7 @@ void tubuh(float p, float l, float t, float x, float y, float z)
 void jengger(float p, float l, float t, float x, float y, float z)
 {
     glPushMatrix();
-        setMaterialColor(10,0,0);
+        setMaterialColor(10,0,0, alphaTrans);
         glTranslated(x,y,z);
         elips(p,l,t);
     glPopMatrix();
@@ -179,7 +163,7 @@ void jengger(float p, float l, float t, float x, float y, float z)
 void paruh(float p, float l, float t, float x, float y, float z)
 {
     glPushMatrix();
-        setMaterialColor(5,2,0);
+        setMaterialColor(5,2,0, alphaTrans);
         glTranslated(x,y,z);
         cone(p,l,t);
     glPopMatrix();
@@ -188,7 +172,7 @@ void paruh(float p, float l, float t, float x, float y, float z)
 void tulangAyam(float p, float l, float t, float x, float y, float z)
 {
     glPushMatrix();
-        setMaterialColor(1,1,0);
+        setMaterialColor(1,1,0, alphaTrans);
         glTranslated(x,y,z);
         elips(p,l,t);
     glPopMatrix();
@@ -202,11 +186,11 @@ void sheep1()
         // badan
         if (model == 1 || model == 2 || model == 3 || model == 4 )
         {
-            setMaterialColor(7,7,7);
+            setMaterialColor(7,7,7, alphaTrans);
         }
         else
         {
-            setMaterialColor(1,1,1);
+            setMaterialColor(1,1,1, alphaTrans);
         }
         elips(6,6,5);
         glTranslated(4,0,0);
@@ -234,14 +218,14 @@ void sheep1()
         elips(2,3,2);
         glPopMatrix();
         // kepala
-        setMaterialColor(6,3,2);
+        setMaterialColor(6,3,2, alphaTrans);
         glTranslated(3,-1, 8);
         elips(5,4,4);
 
         bulu(5,3,3,0,4,0);
 
         // tanduk
-        setMaterialColor(0.5, 0.2, 0);
+        setMaterialColor(0.5, 0.2, 0, alphaTrans);
         glTranslated(2.5, 2.5, 1);
         glRotated(-35,0,0,1);
     //    cone(1,1,4);
@@ -251,25 +235,25 @@ void sheep1()
     //    cone(1,1,4);
         glRotated(-35,0,0,1);
         // mata
-        setMaterialColor(0,0,0);
+        setMaterialColor(0,0,0, alphaTrans);
         glTranslated(4, -2.5, 2.4);
         elips(1, 0.7, 1);
         glTranslated(-3, 0, 0);
         elips(1, 0.7, 1);
-        setMaterialColor(1,1,1);
+        setMaterialColor(1,1,1, alphaTrans);
         glTranslated(0,0,0.43);
         elips(0.5, 0.3, 0.5);
         glTranslated(3,0,0);
         elips(0.5, 0.3, 0.5);
         // mulut
-        setMaterialColor(0,0,0);
+        setMaterialColor(0,0,0, alphaTrans);
         glTranslated(-1.5, -2, -1);
         elips(1.5, 0.7, 1);
         glPopMatrix();
 
         //kaki
         glPushMatrix();
-        setMaterialColor(0,0,0);
+        setMaterialColor(0,0,0, alphaTrans);
         glTranslated(4,-5,0);
         elips(1,1,2);
         glTranslated(-8,0,0);
@@ -282,7 +266,7 @@ void sheep1()
 
         //telinga
 
-        setMaterialColor(2,1,1);
+        setMaterialColor(2,1,1, alphaTrans);
         glPushMatrix();
             glRotated(-25,0,0,1);
             tubuh(4,1.5,1.5,3,2,4);
@@ -305,28 +289,28 @@ void sheep2()
     glRotated(-10,1,0,0);
         //kepala
         glPushMatrix();
-            setMaterialColor(8,4,3);
+            setMaterialColor(8,4,3, alphaTrans);
             elips(7,6,6);
-            setMaterialColor(0,0,0);
+            setMaterialColor(0,0,0, alphaTrans);
             glTranslated(3,0,5);
             elips(1,1,1);
-            setMaterialColor(1,1,1);
+            setMaterialColor(1,1,1, alphaTrans);
             glTranslated(0,0,0.8);
             elips(0.4, 0.4, 0.4);
-            setMaterialColor(0,0,0);
+            setMaterialColor(0,0,0, alphaTrans);
             glTranslated(-6,0,-0.8);
             elips(1,1,1);
-            setMaterialColor(1,1,1);
+            setMaterialColor(1,1,1, alphaTrans);
             glTranslated(0,0,0.8);
             elips(0.4, 0.4, 0.4);
             //mulut
-            setMaterialColor(0,0,0);
+            setMaterialColor(0,0,0, alphaTrans);
             glTranslated(3,-2,-1);
             elips(2,1,1.5);
         glPopMatrix();
 
         // tanduk
-        setMaterialColor(1, 0.15, 0);
+        setMaterialColor(1, 0.15, 0, alphaTrans);
         glPushMatrix();
             glRotated(-35,0,0,1);
                 glPushMatrix();
@@ -341,7 +325,7 @@ void sheep2()
         glPopMatrix();
 
         //telinga
-        setMaterialColor(2,1,1);
+        setMaterialColor(2,1,1, alphaTrans);
         glPushMatrix();
             glRotated(-25,0,0,1);
             tubuh(5,2,2,6,4,1);
@@ -354,7 +338,7 @@ void sheep2()
 
         // badan
         glPushMatrix();
-            setMaterialColor(9,9,9);
+            setMaterialColor(9,9,9, alphaTrans);
             glTranslated(0,0,-10);
             glRotated(10,1,0,0);
             elips(8,12,5);
@@ -426,7 +410,7 @@ void sheep3()
     glRotated(-10,1,0,0);
         //kepala
         glPushMatrix();
-            setMaterialColor(10,5,4);
+            setMaterialColor(10,5,4, alphaTrans);
             elips(9,8,8);
         glPopMatrix();
 
@@ -445,7 +429,7 @@ void sheep3()
         glPopMatrix();
 
         //telinga
-        setMaterialColor(2,1,1);
+        setMaterialColor(2,1,1, alphaTrans);
         glPushMatrix();
             glRotated(-25,0,0,1);
             tubuh(5,2,2,8,4,0);
@@ -457,7 +441,7 @@ void sheep3()
         glPopMatrix();
 
         //tanduk
-        setMaterialColor(1,0.15,0);
+        setMaterialColor(1,0.15,0, alphaTrans);
         glPushMatrix();
             glTranslated(-1,0,-3);
             glPushMatrix();
@@ -492,7 +476,7 @@ void sheep3()
 
         //badan
         glPushMatrix();
-            setMaterialColor(2,1,1);
+            setMaterialColor(2,1,1, alphaTrans);
             glRotated(10,1,0,0);
             tubuh(10,17,10,0,0,-15);
         glPopMatrix();
@@ -577,7 +561,7 @@ void sheep4()
     glRotated(-10,1,0,0);
         //kepala
         glPushMatrix();
-            setMaterialColor(10,5,4);
+            setMaterialColor(10,5,4, alphaTrans);
             elips(9,8,8);
         glPopMatrix();
 
@@ -587,10 +571,9 @@ void sheep4()
 
         //mulut
         tubuhHitam(2,2,0.5, 0, -6, 4);
-//        tubuhHitam(0.5,1,1, 0, -7, 7);
 
         // tanduk
-        setMaterialColor(0.5,0.15,0);
+        setMaterialColor(0.5,0.15,0, alphaTrans);
         glPushMatrix();
             glTranslated(-1,0,-3);
             glPushMatrix();
@@ -646,7 +629,7 @@ void sheep4()
 
         //badan
         glPushMatrix();
-            setMaterialColor(12,6,6);
+            setMaterialColor(12,6,6, alphaTrans);
             glRotated(10,1,0,0);
             tubuh(12,17,12,0,0,-15);
         glPopMatrix();
@@ -849,15 +832,15 @@ void display()
 			x+lx, 1.0f,  z+lz,
 			0.0f, 1.0f,  0.0f);
 
-    setMaterialColor(7, 7, 7);
+    setMaterialColor(7, 7, 7, alphaTrans);
 
-//    glRotatef(45, 1,1,1);
+    // glRotatef(45, 1,1,1);
 
     glRotated(rotX, 1, 0, 0);
     glRotated(rotY, 0, 1, 0);
     glRotated(rotZ, 0, 0, 1);
 
-//    glRotatef(sudut, 0,1,0);
+    // glRotatef(sudut, 0,1,0);
 
     if (model == 1)
     {
@@ -938,6 +921,31 @@ void kunci(unsigned char key, int x, int y)
     display();
 }
 
+void specKey(int key, int x, int y)
+{
+    if (viewMode == 2) {
+            if(key == GLUT_KEY_RIGHT ) {
+                    alpha-=0.1;
+                    viewDir[0] = cos(alpha);
+                    viewDir[1] = sin(alpha);
+            }else if(key == GLUT_KEY_LEFT) {
+                    alpha+=0.1;
+                    viewDir[0] = cos(alpha);
+                    viewDir[1] = sin(alpha);
+            }else if(key == GLUT_KEY_UP) {
+                    pos[0]+=1*viewDir[0];
+                    pos[1]+=1*viewDir[1];
+                    pos[2]+=1*viewDir[2];
+            }else if(key == GLUT_KEY_DOWN) {
+                    pos[0]-=1*viewDir[0];
+                    pos[1]-=1*viewDir[1];
+                    pos[2]-=1*viewDir[2];
+            }
+            display();
+            // cout << pos[0] << " " << pos[1] << " " << pos[2] << endl;
+    }
+}
+
 void mouseButton(int button, int state, int x, int y)
 {
 
@@ -976,22 +984,39 @@ void reshape (int w, int h)
     glMatrixMode (GL_PROJECTION);
     glLoadIdentity();
     if (w <= h)
-        glOrtho (-35, 35, -35*(GLfloat)h/(GLfloat)w, 35*(GLfloat)h/(GLfloat)w, - 100.0, 100.0);
+        glOrtho (-35, 35, -35*(GLfloat)h/(GLfloat)w, 35*(GLfloat)h/(GLfloat)w, -100.0, 100.0);
     else
         glOrtho (-35*(GLfloat)w/(GLfloat)h, 35*(GLfloat)w/(GLfloat)h, -35, 35, -100.0, 100.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
- }
+}
+
 
 void myinit()
 {
-    glClearColor (0, 0.7, 0, 0.0);
-    setLigthingColor(1, 1, 1);
+    glClearColor (0, 0.8, 1, 1);
+    // lighting
+    GLfloat light_position_diff[] = { 0.0, 10.0, 5.0, 0.0};
+    GLfloat light_position_spec[] = { 0.0, -10.0, 5.0, 0.0 };
+    GLfloat diffuse_light[] = { 0.8, 0.8, 1.0, 0.5 };
+    GLfloat specular_light[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat ambient_light[] = { 0.9, 0.9, 0.9, 1.0 };
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position_diff);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse_light);
+    glLightfv(GL_LIGHT1, GL_POSITION, light_position_spec);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, specular_light);
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT,ambient_light);
     glEnable(GL_LIGHTING);
-    glEnable(GL_DEPTH_TEST);
     glShadeModel (GL_SMOOTH);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
+
+    // 3D Dependenci
+    glShadeModel(GL_FLAT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_DEPTH_TEST);
+
 }
 
  void myIdle()
@@ -1006,12 +1031,13 @@ int main(int argc, char* argv[])
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(100,100);
-	glutCreateWindow("170411100061 - Tugas UAS II Karakter");
+	glutCreateWindow("170411100061 - Tugas UAS - Sheep Fighter");
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(kunci);
 	glutMouseFunc(mouseButton);
 	glutMotionFunc(mouseMove);
+    glutSpecialFunc(specKey);
 	glutIdleFunc(myIdle);
 	myinit();
 	glutMainLoop();
