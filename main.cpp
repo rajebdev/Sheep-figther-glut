@@ -6,7 +6,6 @@
 #endif
 #include <iostream>
 #include <math.h>
-#include <cstdlib>
 #include "Sheep.h"
 
 using namespace std;
