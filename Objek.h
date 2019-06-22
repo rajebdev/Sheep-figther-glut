@@ -44,6 +44,68 @@ void cube(float p=0, float l=0, float t=0)
 
 }
 
+void makeBox(float x, float y, float z, float p, float l, float t, float colR, float colG, float colB, float colA)
+{
+    glPushMatrix();
+        glTranslated(x, y, z);
+        setMaterialColor(colR, colG, colB, colA);
+        cube(p, l, t);
+    glPopMatrix();
+}
+
+void cylinder(float alas,float atas,float tinggi)
+{
+    float i;
+    glPushMatrix();
+    
+    glTranslatef(1.0,0.0,-alas/8);
+    glutSolidCone(alas,0,32,4);
+    for(i=0;i<=tinggi;i+=alas/24)
+    {
+        glTranslatef(0.0,0.0,alas/24);
+        glutSolidTorus(alas/4,alas-((i*(alas-atas))/tinggi),16,16);
+    }
+    glTranslatef(0.0,0.0,alas/4);
+    glutSolidCone(atas,0,20,1);
+    glColor3f(1.,0.,0.);
+    
+    glPopMatrix();
+}
+
+
+void createBackground()
+{
+    // make ground
+    makeBox(0, 0, -5, 165, 5, 200, 0, 0.5, 0, 1);
+    // make board
+    makeBox(-62.5, 0, 0, 40, 5, 200, 0, 1, 0, 1);
+    // make border top
+    glPushMatrix();
+    glTranslated(20, 0, 0);
+    makeBox(0, 97.5, 0, 125, 5, 5, 0, 1, 0, 1);
+    // border bottom
+    makeBox(0, -97.5, 0, 125, 5, 5, 0, 1, 0, 1);
+    // make border right
+    makeBox(60, 0, 0, 5, 5, 200, 0, 1, 0, 1);
+
+    // make col
+    makeBox(-37.5, 0, 0, 5, 5, 200, 0, 1, 0, 1);
+    makeBox(-12.5, 0, 0, 5, 5, 200, 0, 1, 0, 1);
+    makeBox(12.5, 0, 0, 5, 5, 200, 0, 1, 0, 1);
+    makeBox(37.5, 0, 0, 5, 5, 200, 0, 1, 0, 1);
+
+    // make midle line
+    makeBox(0, 0, -1, 125, 5, 3, 1, 0, 0, 0.5);
+
+    // make wall wood
+
+    makeBox(-85, 0, 12.5, 35, 20, 7.5, 0.3, 0.3, 0, 1);
+
+
+    glPopMatrix();
+}
+
+
 void elips(float p, float l, float t)
 {
     glPushMatrix();
