@@ -135,8 +135,8 @@ void createBackground()
     makeBox(-7.5, -117.5, 11, 136, 15, 13, 0.5, 0.2, 0, 1);
 
     // make bar life player loading
-    makeBox(-7.5, 117.5, 12, 132, 15, 10, 0, 0.6, 0, 1);
-    makeBox(-7.5, -117.5, 12, 132, 15, 10, 0, 0.6, 0, 1);
+    makeBox(-1-((119-(119*(lifeBarA/100)))/2), 117.5, 12, 119*(lifeBarA/100), 15, 10, 0, 0.6, 0, 1);
+    makeBox(-1-((119-(119*(lifeBarB/100)))/2), -117.5, 12, 119*(lifeBarB/100), 15, 10, 0, 0.6, 0, 1);
 
     glPopMatrix();
 

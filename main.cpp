@@ -32,6 +32,9 @@ float alpha = 5;
 // Transparant Objek
 float alphaTrans = 1;
 
+// Game play
+float lifeBarA = 100;
+float lifeBarB = 100;
 
 void setMaterialColor(float r, float g, float b, float a)
 {
