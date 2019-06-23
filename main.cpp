@@ -66,7 +66,7 @@ void display()
     glPopMatrix();
 
     createBackground();
-    createIconSheep(4, white);
+    createIconSheepComing(1, black);
 
     glutSwapBuffers();
 }

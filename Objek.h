@@ -1055,3 +1055,14 @@ void createIconSheep(int sheepMod, bool sheepCol)
     
     glPopMatrix();
 }
+
+
+void createIconSheepComing(int sheepMod, bool sheepCol)
+{
+    glPushMatrix();
+    sheepCol == white ? glTranslated(0, 30, 0) : glTranslated(0, -30, 0);
+    
+    createIconSheep(sheepMod, sheepCol);
+
+    glPopMatrix();
+}
