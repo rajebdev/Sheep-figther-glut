@@ -62,10 +62,11 @@ void display()
 
     glPushMatrix();
     glTranslated(0, objekMove, 0);
-    walkSheep(0);
+    // walkSheepWhite(0);
     glPopMatrix();
 
     createBackground();
+    createIconSheep(4, white);
 
     glutSwapBuffers();
 }

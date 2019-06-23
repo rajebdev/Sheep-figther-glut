@@ -32,3 +32,7 @@ float loadTime = 10;
 
 // move objek
 float objekMove = 0;
+
+// sheep color
+bool black = false;
+bool white = true;

@@ -122,22 +122,22 @@ void createBackground()
 
     // make board sheep cooming
     // top
-    cylinder(0, 40, 2, 11, 5, 0.2, 0.2, 0, 1);
-    cylinder(0, 70, 2, 14, 5, 0.2, 0.2, 0, 1);
-    cylinder(0, 40, 0, 13, 5, 0.8, 0.6, 0, 1);
-    cylinder(0, 70, 0, 16, 5, 0.8, 0.6, 0, 1);
+    cylinder(0, 40, 2, 11, 10, 0.2, 0.2, 0, 1);
+    cylinder(0, 70, 2, 14, 10, 0.2, 0.2, 0, 1);
+    cylinder(0, 40, 0, 13, 10, 0.8, 0.6, 0, 1);
+    cylinder(0, 70, 0, 16, 10, 0.8, 0.6, 0, 1);
     
     // bottom
-    cylinder(0, -40, 2, 11, 5, 0.2, 0.2, 0, 1);
-    cylinder(0, -70, 2, 14, 5, 0.2, 0.2, 0, 1);
-    cylinder(0, -40, 0, 13, 5, 0.8, 0.6, 0, 1);
-    cylinder(0, -70, 0, 16, 5, 0.8, 0.6, 0, 1);
+    cylinder(0, -40, 2, 11, 10, 0.2, 0.2, 0, 1);
+    cylinder(0, -70, 2, 14, 10, 0.2, 0.2, 0, 1);
+    cylinder(0, -40, 0, 13, 10, 0.8, 0.6, 0, 1);
+    cylinder(0, -70, 0, 16, 10, 0.8, 0.6, 0, 1);
 
     // make sheep loading
     // top
-    createLoadingSheep(0, 70, 9, 14.5, loadTime, 0, 1, 1, 0.7);
+    createLoadingSheep(0, 70, 14, 14.5, loadTime, 0, 1, 1, 0.7);
     //bottom
-    createLoadingSheep(0, -70, 9, 14.5, loadTime, 0, 1, 1, 0.7);
+    createLoadingSheep(0, -70, 14, 14.5, loadTime, 0, 1, 1, 0.7);
 
     // make profile player
     cylinder(0, 117.5, -9.9, 22, 35, 0.8, 0.6, 0, 1);
@@ -909,8 +909,9 @@ void ayam()
     glPopMatrix();
 }
 
-void setObjek(int m)
+void setObjekWhite(int m)
 {
+    model = m;
     if (model == 1)
     {
         sheep1();
@@ -927,7 +928,13 @@ void setObjek(int m)
     {
         sheep4();
     }
-    else if (model == 5)
+
+}
+
+void setObjekBlack(int m)
+{
+    model = m+4;
+    if (model == 5)
     {
         sheep1();
     }
@@ -949,7 +956,7 @@ void setObjek(int m)
     }
 }
 
-void walkSheep(int m)
+void walkSheepWhite(int sheepMod)
 {
     glPushMatrix();
     
@@ -963,24 +970,88 @@ void walkSheep(int m)
             glScaled(0.75, 0.75, 0.75);
             glTranslated(7.5, 15, 0);
 
-            setObjek(m);
+            setObjekWhite(sheepMod);
         
         glPopMatrix();
 
     glPopMatrix();
 }
 
-void iconSheep(int m)
+void walkSheepBlack(int sheepMod)
 {
     glPushMatrix();
+    
+        glTranslated(0, -0, 0);
 
-    glRotated(-10, 1, 0, 0);
-    glRotated(-90, 1, 0, 0);
-    glRotated(180, 0, 0, 1);
-    glScaled(0.75, 0.75, 0.75);
-    glTranslated(7.5, 15, 0);
+        glPushMatrix();
+        
+            glRotated(-10, 1, 0, 0);
+            glRotated(90, 1, 0, 0);
+            glRotated(180, 0, 0, 1);
+            glScaled(0.75, 0.75, 0.75);
+            glTranslated(7.5, 15, 0);
 
-    setObjek(m);
+            setObjekBlack(sheepMod);
+        
+        glPopMatrix();
 
+    glPopMatrix();
+}
+
+// make ikon sheep
+void createIconSheep(int sheepMod, bool sheepCol)
+{
+    glPushMatrix();
+    glScaled(0.7, 0.7, 0.7);
+    if (sheepCol == true)
+    {
+        glTranslated(-89, -97.5, 12);
+        model = sheepMod;
+        if (model == 1)
+        {
+            glTranslated(0, 6.5, 10);
+            sheep1();
+        }
+        else if (model == 2)
+        {
+            glTranslated(0, 1, 5);
+            sheep2();
+        }
+        else if (model == 3)
+        {
+            glTranslated(0, -2.5, -1);
+            sheep3();
+        }
+        else if (model == 4)
+        {
+            glTranslated(0, -4, -1);
+            sheep4();
+        }
+    }
+    else
+    {
+        glTranslated(-89, 97.5, 12);
+        model = sheepMod+4;
+        if (model == 5)
+        {
+            glTranslated(0, 11.5, 10);
+            sheep1();
+        }
+        else if (model == 6)
+        {
+            glTranslated(0, 6, 5);
+            sheep2();
+        }
+        else if (model == 7)
+        {
+            glTranslated(0, 2, -1);
+            sheep3();
+        }
+        else if (model == 8)
+        {
+            sheep4();
+        }
+    }
+    
     glPopMatrix();
 }
