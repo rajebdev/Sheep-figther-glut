@@ -62,7 +62,7 @@ void display()
 
     glPushMatrix();
     glTranslated(0, objekMove, 0);
-    // walkSheepWhite(0);
+    walkSheepWhite(4, 0);
     glPopMatrix();
 
     createBackground();

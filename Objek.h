@@ -956,11 +956,11 @@ void setObjekBlack(int m)
     }
 }
 
-void walkSheepWhite(int sheepMod)
+void walkSheepWhite(int sheepMod, int sheepPos)
 {
     glPushMatrix();
     
-        glTranslated(0, -0, 0);
+        glTranslated(-25+25*(sheepPos), -165, 0);
 
         glPushMatrix();
         
@@ -977,17 +977,16 @@ void walkSheepWhite(int sheepMod)
     glPopMatrix();
 }
 
-void walkSheepBlack(int sheepMod)
+void walkSheepBlack(int sheepMod, int sheepPos)
 {
     glPushMatrix();
     
-        glTranslated(0, -0, 0);
+        glTranslated(-35+25*(sheepPos), 165, 0);
 
         glPushMatrix();
         
-            glRotated(-10, 1, 0, 0);
+            glRotated(10, 1, 0, 0);
             glRotated(90, 1, 0, 0);
-            glRotated(180, 0, 0, 1);
             glScaled(0.75, 0.75, 0.75);
             glTranslated(7.5, 15, 0);
 

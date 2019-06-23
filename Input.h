@@ -51,7 +51,7 @@ void kunci(unsigned char key, int x, int y)
     }
     if (key == ',')
     {
-        objekMove += 3;
+        objekMove -= 3;
         clearCMD();
         cout << objekMove << endl;
     }
