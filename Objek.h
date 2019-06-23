@@ -1082,10 +1082,10 @@ void walkAnimation()
 {
     if (maju)
     {
-        animasiMove += 1;
+        animasiMove += 0.2;
         maju = false;
     }else{
-        animasiMove -= 1;
+        animasiMove -= 0.2;
         maju = true;
     }
 }

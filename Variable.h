@@ -1,4 +1,4 @@
-#include <time.h>
+
 // Rotation
 float rotX=0, rotY=0, rotZ=0;
 float tempRotX=0, tempRotY=0, tempRotZ=0;
@@ -10,6 +10,7 @@ float x=0.0f, z=5.0f;
 float deltaAngle = 0.0f;
 int xOrigin = -1;
 
+// sheep model
 int model = 0;
 
 // Cameras
@@ -48,7 +49,7 @@ int sheepB1 = 0;
 int sheepB2 = 0;
 
 // time
-time_t timeStart, timeDisplay = time(NULL), timeSec;
+time_t timeStart, timeDisplay, timeSec;
 int mod = 0, count = 0;
 time_t timeSecTemp;
 

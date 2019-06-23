@@ -11,7 +11,6 @@ int getRandomSheep()
 
 void startingGame()
 {
-    srand(time(NULL));
     sheepPosA = new int[100];
     sheepModelA = new int[100];
     sheepMoveA = new float[100];

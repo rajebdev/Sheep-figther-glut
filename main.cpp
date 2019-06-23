@@ -74,19 +74,16 @@ void display()
 
     if (timeSecTemp != timeSec)
     {
-        count++;
         laodingSheep();
     }
 
-    // objekMove += 1;
-    // printf("move = %f \n", objekMove);
-
     glPushMatrix();
-    // walkAnimation();
+    walkAnimation();
     for (int i = 0; i < countSheepA; i++)
     {
         if (sheepLifeA[i] == true)
         {
+            glTranslated(animasiMove, 0, 0);
             glPushMatrix();
             sheepMoveA[i] += 0.8;
             glTranslated(0, sheepMoveA[i],0);
@@ -113,8 +110,8 @@ void display()
     showingIconSheep();
     createTextLife();
 
-    
     timeSecTemp = timeSec;
+
     glutSwapBuffers();
 }
 
