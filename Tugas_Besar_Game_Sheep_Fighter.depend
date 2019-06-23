@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1561273044 source:d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\main.cpp
+1561281185 source:d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
 	<math.h>
+	<sstream>
 	"Sheep.h"
 	"Variable.h"
 	"Objek.h"
@@ -250,11 +251,11 @@
 	<_mingw.h>
 	<stddef.h>
 
-1561273269 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\objek.h
+1561282314 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\objek.h
 
-1561273483 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\input.h
+1561278690 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\input.h
 
-1561272400 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\variable.h
+1561280851 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\variable.h
 	<time.h>
 
 1561259888 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\gameplay.cpp
@@ -262,7 +263,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1561272907 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\gameplay.h
+1561280166 d:\kuliah\semester_4\grafikakomputer\tugas_besar_game_sheep_fighter\gameplay.h
 	<time.h>
 	<stdio.h>
 	<stdlib.h>

@@ -188,8 +188,10 @@ void createBackground()
     makeBox(-7.5, -117.5, 15, 136, 23, 13, 0.5, 0.2, 0, 1);
 
     // make bar life player loading
-    makeBox(-1-((119-(119*(lifeBarA/100)))/2), 117.5, 16, 119*(lifeBarA/100), 22, 10, 0, 0.6, 0, 1);
-    makeBox(-1-((119-(119*(lifeBarB/100)))/2), -117.5, 16, 119*(lifeBarB/100), 22, 10, 0, 0.6, 0, 1);
+    // top
+    makeBox(-1-((119-(119*(lifeBarB/100)))/2), 117.5, 16, 119*(lifeBarB/100), 22, 10, 0, 0.6, 0, 1);
+    //bottom
+    makeBox(-1-((119-(119*(lifeBarA/100)))/2), -117.5, 16, 119*(lifeBarA/100), 22, 10, 0, 0.6, 0, 1);
 
     glPopMatrix();
 
@@ -1080,10 +1082,45 @@ void walkAnimation()
 {
     if (maju)
     {
-        objekMove += 0.6;
+        animasiMove += 1;
         maju = false;
     }else{
-        objekMove -= 0.6;
+        animasiMove -= 1;
         maju = true;
     }
+}
+
+void displayText(float x, float y, char *text) {
+    setMaterialColor(1,1,1, 1);
+    char *c;
+    void* font_x;
+    float width_text;
+
+    font_x = GLUT_BITMAP_HELVETICA_18;
+
+    width_text = glutBitmapLength(font_x, (unsigned char *)text);
+
+    glRasterPos3f(x, y, 50);
+    for (c=text; *c != '\0'; c++) {
+        glutBitmapCharacter(font_x, *c);
+    }
+}
+
+void createTextLife()
+{
+    
+    string lifeAtemp = int_to_str(lifeBarA);
+    char textlifeA[lifeAtemp.length()+1];
+    strcpy(textlifeA, lifeAtemp.c_str());
+
+    string lifeBtemp = int_to_str(lifeBarB);
+    char textlifeB[lifeBtemp.length()+1];
+    strcpy(textlifeB, lifeBtemp.c_str());
+
+    displayText(0, 115, "PLAYER 2 : ");
+    displayText(40, 115, textlifeB);
+
+    
+    displayText(0, -115, "PLAYER 1 : ");
+    displayText(40, -115, textlifeB);
 }

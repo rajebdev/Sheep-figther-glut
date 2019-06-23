@@ -14,15 +14,12 @@ void startingGame()
     srand(time(NULL));
     sheepPosA = new int[100];
     sheepModelA = new int[100];
-    sheepMoveA = new int[100];
+    sheepMoveA = new float[100];
+    sheepLifeA = new bool[100];
     sheepPosB = new int[100];
     sheepModelB = new int[100];
-    sheepMoveB = new int[100];
-    
-    // for (int i = 0; i < 100; i++)
-    // {
-    //     cout << sheepModel[i] << " " << sheepPos[i] << endl;
-    // }
+    sheepMoveB = new float[100];
+    sheepLifeB = new bool[100];
     
     sheepA1 = getRandomSheep();
     sheepA2 = getRandomSheep();
@@ -50,4 +47,44 @@ void showingIconSheep()
     createIconSheepComing(sheepA2, white);
     createIconSheep(sheepB1, black);
     createIconSheepComing(sheepB2, black);
+}
+
+void collisonChecker();
+
+bool lifeChecker(bool sheepCol, int sheepMod, float sheepMove)
+{
+    int poin;
+    if (sheepMod == 1)
+    {
+        poin = 2;
+    }
+    else if (sheepMod == 2)
+    {
+        poin = 5;
+    }
+    else if (sheepMod == 3)
+    {
+        poin = 8;
+    }
+    else if (sheepMod == 4)
+    {
+        poin = 12;
+    }
+
+    if (sheepCol == true)
+    {
+        if (sheepMove > 285)
+        {
+            lifeBarB -= poin;
+            return true;
+        }
+        
+    }else{
+        if (sheepMove < -285)
+        {
+            lifeBarA -= poin;
+            return true;
+        }
+    }
+    return false;
 }

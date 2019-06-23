@@ -28,11 +28,8 @@ float lifeBarA = 100;
 float lifeBarB = 100;
 
 // loading sheep
-float loadTimeA = 10;
-float loadTimeB = 10;
-
-// move objek
-float objekMove = 0;
+float loadTimeA = 0;
+float loadTimeB = 0;
 
 // sheep color
 bool black = false;
@@ -41,6 +38,7 @@ bool white = true;
 // animasi
 
 bool maju = true;
+float animasiMove = 0;
 
 // Icon sheep
 
@@ -49,16 +47,23 @@ int sheepA2 = 0;
 int sheepB1 = 0;
 int sheepB2 = 0;
 
-
 // time
 time_t timeStart, timeDisplay = time(NULL), timeSec;
 int mod = 0, count = 0;
 time_t timeSecTemp;
 
 // sheep array
-int *sheepPosA, *sheepModelA, *sheepMoveA;
-int *sheepPosB, *sheepModelB, *sheepMoveB;
+int *sheepPosA, *sheepModelA; 
+float *sheepMoveA;
+bool *sheepLifeA;
+int *sheepPosB, *sheepModelB;
+float *sheepMoveB;
+bool *sheepLifeB;
 
 // count sheep A B
 int countSheepA = 0;
 int countSheepB = 0;
+
+// index awal sheep A B
+int startSheepA = 0;
+int startSheepB = 0;

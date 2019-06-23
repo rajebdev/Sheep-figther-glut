@@ -44,12 +44,6 @@ void kunci(unsigned char key, int x, int y)
         deltaAngle = 0.0f;
         xOrigin = -1;
     }
-    if (key == ',')
-    {
-        objekMove -= 3;
-        clearCMD();
-        cout << objekMove << endl;
-    }
     
     if (key > 48 && key < 54)
     {
@@ -58,6 +52,7 @@ void kunci(unsigned char key, int x, int y)
             sheepModelA[countSheepA] = sheepA1;
             sheepPosA[countSheepA] = key-49;
             sheepMoveA[countSheepA] = 0;
+            sheepLifeA[countSheepA] = true;
             loadTimeA = 10;
             sheepA1 = sheepA2;
             sheepA2 = getRandomSheep();
@@ -71,6 +66,7 @@ void kunci(unsigned char key, int x, int y)
             sheepModelB[countSheepB] = sheepB1;
             key == 48 ? sheepPosB[countSheepB] = 0 : sheepPosB[countSheepB] = key-54;
             sheepMoveB[countSheepB] = 0;
+            sheepLifeB[countSheepB] = true;
             loadTimeB = 10;
             sheepB1 = sheepB2;
             sheepB2 = getRandomSheep();

@@ -6,11 +6,19 @@
 #endif
 #include <iostream>
 #include <math.h>
+#include <sstream>
 #include "Sheep.h"
 
 using namespace std;
 
 #include "Variable.h"
+
+string int_to_str(int angka){
+    stringstream temp_str;
+    temp_str << angka;
+    string final_str = temp_str.str();
+    return final_str;
+}
 
 void setMaterialColor(float r, float g, float b, float a)
 {
@@ -73,32 +81,41 @@ void display()
 
     // objekMove += 1;
     // printf("move = %f \n", objekMove);
-    
-    timeSecTemp = timeSec;
 
     glPushMatrix();
-    walkAnimation();
+    // walkAnimation();
     for (int i = 0; i < countSheepA; i++)
     {
-        glPushMatrix();
-        sheepMoveA[i] += 1;
-        glTranslated(0, sheepMoveA[i],0);
-        walkSheepWhite(sheepModelA[i], sheepPosA[i]);
-        glPopMatrix();
+        if (sheepLifeA[i] == true)
+        {
+            glPushMatrix();
+            sheepMoveA[i] += 0.8;
+            glTranslated(0, sheepMoveA[i],0);
+            walkSheepWhite(sheepModelA[i], sheepPosA[i]);
+            lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
+            glPopMatrix();
+        }
     }
     for (int i = 0; i < countSheepB; i++)
     {
-        glPushMatrix();
-        sheepMoveB[i] -= 1;
-        glTranslated(0, sheepMoveB[i],0);
-        walkSheepBlack(sheepModelB[i], sheepPosB[i]);
-        glPopMatrix();
+        if (sheepLifeB[i] == true)
+        {
+            glPushMatrix();
+            sheepMoveB[i] -= 0.8;
+            glTranslated(0, sheepMoveB[i],0);
+            walkSheepBlack(sheepModelB[i], sheepPosB[i]);
+            lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
+            glPopMatrix();
+        }
     }
     glPopMatrix();
 
     createBackground();
     showingIconSheep();
+    createTextLife();
 
+    
+    timeSecTemp = timeSec;
     glutSwapBuffers();
 }
 
