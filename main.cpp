@@ -85,9 +85,17 @@ void display()
         {
             glTranslated(animasiMove, 0, 0);
             glPushMatrix();
-            sheepMoveA[i] += 0.8;
             glTranslated(0, sheepMoveA[i],0);
             walkSheepWhite(sheepModelA[i], sheepPosA[i]);
+            if (collisonChecker(white, sheepModelA[i], sheepFrontA[i], sheepPosA[i]) ==  false)
+            {
+                if (checkCollisionSelf(white, i, sheepModelA[i], sheepFrontA[i], sheepPosA[i]) == false)
+                {
+                    sheepMoveA[i] += 0.8;
+                    sheepFrontA[i] += 0.8;
+                    sheepBackA[i] += 0.8;
+                }
+            }
             lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
             glPopMatrix();
         }
@@ -97,9 +105,17 @@ void display()
         if (sheepLifeB[i] == true)
         {
             glPushMatrix();
-            sheepMoveB[i] -= 0.8;
             glTranslated(0, sheepMoveB[i],0);
             walkSheepBlack(sheepModelB[i], sheepPosB[i]);
+            if (collisonChecker(black, sheepModelB[i], sheepFrontB[i], sheepPosB[i]) == false)
+            {
+                if (checkCollisionSelf(black, i, sheepModelB[i], sheepFrontB[i], sheepPosB[i]) == false)
+                {
+                    sheepMoveB[i] -= 0.8;
+                    sheepFrontB[i] -= 0.8;
+                    sheepBackB[i] -= 0.8;
+                }
+            }
             lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
             glPopMatrix();
         }

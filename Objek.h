@@ -1124,3 +1124,50 @@ void createTextLife()
     displayText(40, 115, textlifeB);
 
 }
+
+
+float getFrontObjek(int sheepMod)
+{
+    float posTemp;
+    if (sheepMod == 4)
+    {
+        posTemp = 21;
+    }
+    else if (sheepMod == 3)
+    {
+        posTemp = 21;
+    }
+    else if (sheepMod == 2)
+    {
+        posTemp = 14;
+    }
+    else if (sheepMod == 1)
+    {
+        posTemp = 7;
+    }
+    
+    return posTemp;
+}
+
+float getBackObjek(int sheepMod)
+{
+    float posTemp;
+    if (sheepMod == 4)
+    {
+        posTemp = 15;
+    }
+    else if (sheepMod == 3)
+    {
+        posTemp = 15;
+    }
+    else if (sheepMod == 2)
+    {
+        posTemp = 10;
+    }
+    else if (sheepMod == 1)
+    {
+        posTemp = 9;
+    }
+    
+    return posTemp;
+}
