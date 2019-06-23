@@ -1091,7 +1091,7 @@ void walkAnimation()
 }
 
 void displayText(float x, float y, char *text) {
-    setMaterialColor(1,1,1, 1);
+    setMaterialColor(1,1,0, 1);
     char *c;
     void* font_x;
     float width_text;
@@ -1117,10 +1117,10 @@ void createTextLife()
     char textlifeB[lifeBtemp.length()+1];
     strcpy(textlifeB, lifeBtemp.c_str());
 
+    displayText(0, -120, "PLAYER 1 : ");
+    displayText(40, -120, textlifeA);
+
     displayText(0, 115, "PLAYER 2 : ");
     displayText(40, 115, textlifeB);
 
-    
-    displayText(0, -115, "PLAYER 1 : ");
-    displayText(40, -115, textlifeB);
 }

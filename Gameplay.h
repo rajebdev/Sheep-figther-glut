@@ -30,7 +30,6 @@ void startingGame()
 
 void laodingSheep()
 {
-    int model = getRandomSheep();
     if (loadTimeA <= 10 && loadTimeA > 0)
     {
         loadTimeA -= 1;

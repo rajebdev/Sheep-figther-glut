@@ -47,6 +47,7 @@ void kunci(unsigned char key, int x, int y)
     
     if (key > 48 && key < 54)
     {
+        srand(time(NULL));
         if (loadTimeA == 0)
         {
             sheepModelA[countSheepA] = sheepA1;
@@ -61,6 +62,7 @@ void kunci(unsigned char key, int x, int y)
     }
     if ((key > 53 && key < 58) || key == 48)
     {
+        srand(time(NULL));
         if (loadTimeB == 0)
         {
             sheepModelB[countSheepB] = sheepB1;
