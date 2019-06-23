@@ -12,15 +12,12 @@ int getRandomSheep()
 void startingGame()
 {
     srand(time(NULL));
-    sheepPosA = new int[50];
-    sheepModelA = new int[50];
-    sheepMoveA = new int[50];
-    for (int i = 0; i < 50; i++)
-    {
-        sheepPosA[i] = rand()%5;
-        sheepModelA[i] = 0;
-        sheepPosA[i] = 0;
-    }
+    sheepPosA = new int[100];
+    sheepModelA = new int[100];
+    sheepMoveA = new int[100];
+    sheepPosB = new int[100];
+    sheepModelB = new int[100];
+    sheepMoveB = new int[100];
     
     // for (int i = 0; i < 100; i++)
     // {

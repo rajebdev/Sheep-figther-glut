@@ -55,22 +55,26 @@ void kunci(unsigned char key, int x, int y)
     {
         if (loadTimeA == 0)
         {
+            sheepModelA[countSheepA] = sheepA1;
+            sheepPosA[countSheepA] = key-49;
+            sheepMoveA[countSheepA] = 0;
+            loadTimeA = 10;
             sheepA1 = sheepA2;
             sheepA2 = getRandomSheep();
-            loadTimeA = 10;
+            countSheepA++;
         }
-        sheepModelA[countSheepA] = sheepA1;
-        sheepPosA[countSheepA] = key-49;
-        sheepMoveA[countSheepA] = 0;
-        countSheepA++;
     }
-    if (key > 48 && key < 58)
+    if ((key > 53 && key < 58) || key == 48)
     {
         if (loadTimeB == 0)
         {
+            sheepModelB[countSheepB] = sheepB1;
+            key == 48 ? sheepPosB[countSheepB] = 0 : sheepPosB[countSheepB] = key-54;
+            sheepMoveB[countSheepB] = 0;
+            loadTimeB = 10;
             sheepB1 = sheepB2;
             sheepB2 = getRandomSheep();
-            loadTimeB = 10;
+            countSheepB++;
         }
     }
 

@@ -136,9 +136,18 @@ void createBackground()
 
     // make sheep loading
     // top
-    createLoadingSheep(0, 70, 14, 14.5, loadTimeB, 0, 1, 1, 0.7);
+    if (loadTimeB == 0){
+        createLoadingSheep(0, 70, 14, 14.5, 10, 1, 0, 0, 0.7);
+    }else{
+        createLoadingSheep(0, 70, 14, 14.5, loadTimeB, 0, 1, 1, 0.7);
+    }
+
     //bottom
-    createLoadingSheep(0, -70, 14, 14.5, loadTimeA, 0, 1, 1, 0.7);
+    if (loadTimeA == 0){
+        createLoadingSheep(0, -70, 14, 14.5, 10, 1, 0, 0, 0.7);
+    }else{
+        createLoadingSheep(0, -70, 14, 14.5, loadTimeA, 0, 1, 1, 0.7);
+    }
 
     // make profile player
     cylinder(0, 117.5, -9.9, 22, 35, 0.8, 0.6, 0, 1);

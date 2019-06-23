@@ -86,6 +86,14 @@ void display()
         walkSheepWhite(sheepModelA[i], sheepPosA[i]);
         glPopMatrix();
     }
+    for (int i = 0; i < countSheepB; i++)
+    {
+        glPushMatrix();
+        sheepMoveB[i] -= 1;
+        glTranslated(0, sheepMoveB[i],0);
+        walkSheepBlack(sheepModelB[i], sheepPosB[i]);
+        glPopMatrix();
+    }
     glPopMatrix();
 
     createBackground();

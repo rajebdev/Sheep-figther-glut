@@ -57,7 +57,8 @@ time_t timeSecTemp;
 
 // sheep array
 int *sheepPosA, *sheepModelA, *sheepMoveA;
+int *sheepPosB, *sheepModelB, *sheepMoveB;
 
 // count sheep A B
-
 int countSheepA = 0;
+int countSheepB = 0;
