@@ -31,12 +31,13 @@ void setMaterialColor(float r, float g, float b, float a)
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 }
 
+#include "Objek.h"
+#include "Gameplay.h"
+
 void clearCMD()
 {
     system("cls");
 }
-
-#include "Objek.h"
 
 void setView()
 {
@@ -53,8 +54,6 @@ void setView()
     glLoadIdentity();
 
 }
-
-#include "Gameplay.h"
 
 void display()
 {
