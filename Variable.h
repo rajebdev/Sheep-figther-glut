@@ -1,4 +1,4 @@
-
+#include <time.h>
 // Rotation
 float rotX=0, rotY=0, rotZ=0;
 float tempRotX=0, tempRotY=0, tempRotZ=0;
@@ -28,7 +28,8 @@ float lifeBarA = 100;
 float lifeBarB = 100;
 
 // loading sheep
-float loadTime = 10;
+float loadTimeA = 10;
+float loadTimeB = 10;
 
 // move objek
 float objekMove = 0;
@@ -36,3 +37,27 @@ float objekMove = 0;
 // sheep color
 bool black = false;
 bool white = true;
+
+// animasi
+
+bool maju = true;
+
+// Icon sheep
+
+int sheepA1 = 0;
+int sheepA2 = 0;
+int sheepB1 = 0;
+int sheepB2 = 0;
+
+
+// time
+time_t timeStart, timeDisplay = time(NULL), timeSec;
+int mod = 0, count = 0;
+time_t timeSecTemp;
+
+// sheep array
+int *sheepPosA, *sheepModelA, *sheepMoveA;
+
+// count sheep A B
+
+int countSheepA = 0;

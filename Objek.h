@@ -133,11 +133,12 @@ void createBackground()
     cylinder(0, -40, 0, 13, 10, 0.8, 0.6, 0, 1);
     cylinder(0, -70, 0, 16, 10, 0.8, 0.6, 0, 1);
 
+
     // make sheep loading
     // top
-    createLoadingSheep(0, 70, 14, 14.5, loadTime, 0, 1, 1, 0.7);
+    createLoadingSheep(0, 70, 14, 14.5, loadTimeB, 0, 1, 1, 0.7);
     //bottom
-    createLoadingSheep(0, -70, 14, 14.5, loadTime, 0, 1, 1, 0.7);
+    createLoadingSheep(0, -70, 14, 14.5, loadTimeA, 0, 1, 1, 0.7);
 
     // make profile player
     cylinder(0, 117.5, -9.9, 22, 35, 0.8, 0.6, 0, 1);
@@ -1064,4 +1065,16 @@ void createIconSheepComing(int sheepMod, bool sheepCol)
     createIconSheep(sheepMod, sheepCol);
 
     glPopMatrix();
+}
+
+void walkAnimation()
+{
+    if (maju)
+    {
+        objekMove += 0.6;
+        maju = false;
+    }else{
+        objekMove -= 0.6;
+        maju = true;
+    }
 }

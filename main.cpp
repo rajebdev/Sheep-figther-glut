@@ -46,8 +46,12 @@ void setView()
 
 }
 
+#include "Gameplay.h"
+
 void display()
 {
+    timeDisplay = time(0);
+    timeSec = timeDisplay - timeStart;
     setView();
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     gluLookAt(	x, 1.0f, z,
@@ -60,13 +64,32 @@ void display()
     glRotated(rotY, 0, 1, 0);
     glRotated(rotZ, 0, 0, 1);
 
+
+    if (timeSecTemp != timeSec)
+    {
+        count++;
+        laodingSheep();
+    }
+
+    // objekMove += 1;
+    // printf("move = %f \n", objekMove);
+    
+    timeSecTemp = timeSec;
+
     glPushMatrix();
-    glTranslated(0, objekMove, 0);
-    walkSheepWhite(4, 0);
+    walkAnimation();
+    for (int i = 0; i < countSheepA; i++)
+    {
+        glPushMatrix();
+        sheepMoveA[i] += 1;
+        glTranslated(0, sheepMoveA[i],0);
+        walkSheepWhite(sheepModelA[i], sheepPosA[i]);
+        glPopMatrix();
+    }
     glPopMatrix();
 
     createBackground();
-    createIconSheepComing(1, black);
+    showingIconSheep();
 
     glutSwapBuffers();
 }
@@ -122,11 +145,14 @@ void myIdle()
 
 int main(int argc, char* argv[])
 {
+    timeStart = time(NULL);
+    srand(time(NULL));
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(600,800);
 	glutInitWindowPosition(10,10);
 	glutCreateWindow("170411100061 - Tugas UAS - Sheep Fighter");
+    startingGame();
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(kunci);

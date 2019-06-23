@@ -8,40 +8,41 @@ using namespace std;
 class Sheep
 {
     private:
-        int x, y;
+        int pos;
         int model;
         bool life;
 
     public:
-        Sheep(int m)
+        Sheep()
+        {
+        }
+        Sheep(int m, int p)
         {
             srand(time(NULL));
             model = m;
-            printf("creating sheep %d \n",model);
+            pos = p;
             life = true;
+            printf("creating sheep %d \n",model);
         }
 
-        void setX(int X)
+        int getPos()
         {
-            x = X;
-        }
-        int getX()
-        {
-            return x;
+            return pos;
         }
 
-        void setY(int Y)
+        void setPos(int P)
         {
-            y = Y;
+            pos = P;
         }
-        int getY()
-        {
-            return y;
-        }
-        
+
         int getModel()
         {
             return model;
+        }
+        
+        int setModel(int m)
+        {
+            model = m;
         }
 
         void setLife(bool lv)

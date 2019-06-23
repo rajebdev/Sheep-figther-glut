@@ -33,11 +33,6 @@ void kunci(unsigned char key, int x, int y)
     {
         viewMode < 2 ? viewMode += 1 : viewMode = 0;
     }
-
-    if (key > 48 && key < 58)
-    {
-        model = key - 48;
-    }
     if (key==48){
         rotX = 0;
         rotY = 0;
@@ -54,6 +49,29 @@ void kunci(unsigned char key, int x, int y)
         objekMove -= 3;
         clearCMD();
         cout << objekMove << endl;
+    }
+    
+    if (key > 48 && key < 54)
+    {
+        if (loadTimeA == 0)
+        {
+            sheepA1 = sheepA2;
+            sheepA2 = getRandomSheep();
+            loadTimeA = 10;
+        }
+        sheepModelA[countSheepA] = sheepA1;
+        sheepPosA[countSheepA] = key-49;
+        sheepMoveA[countSheepA] = 0;
+        countSheepA++;
+    }
+    if (key > 48 && key < 58)
+    {
+        if (loadTimeB == 0)
+        {
+            sheepB1 = sheepB2;
+            sheepB2 = getRandomSheep();
+            loadTimeB = 10;
+        }
     }
 
     display();
