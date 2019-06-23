@@ -100,10 +100,10 @@ bool collisonChecker(bool sheepCol, int sheepMod, float sheepFront, int sheepPos
             
             if (sheepFrontB[i] != 0 && sheepPos == sheepPosB[i])
             {
-                if (timeSecTemp != timeSec)
-                {
-                    printf("white check betwen %f and %f \n", sheepFront, sheepFrontB[i]);
-                }
+                // if (timeSecTemp != timeSec)
+                // {
+                //     printf("white check betwen %f and %f \n", sheepFront, sheepFrontB[i]);
+                // }
                 if (sheepFront > sheepFrontB[i])
                 {
                     // printf("Tabrakan Woy \n", NULL);
@@ -147,10 +147,10 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
             
             if (sheepBackA[i] != 0 && sheepPos == sheepPosA[i] && sheepFront != sheepFrontA[i])
             {
-                if (timeSecTemp != timeSec)
-                {
-                    printf("white check betwen %f and %f \n", sheepFront, sheepBackA[i]);
-                }
+                // if (timeSecTemp != timeSec)
+                // {
+                //     printf("white check betwen %f and %f \n", sheepFront, sheepBackA[i]);
+                // }
                 if (sheepFront > sheepBackA[i])
                 {
                     // printf("Tabrakan Woy \n", NULL);
