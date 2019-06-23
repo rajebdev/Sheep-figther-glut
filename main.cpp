@@ -96,6 +96,23 @@ void display()
                     sheepBackA[i] += 0.8;
                 }
             }
+            else
+            {
+                bool cek = checkScore(white, sheepPosA[i]);
+                if (cek == true)
+                {
+                    sheepMoveA[i] += 0.8;
+                    sheepFrontA[i] += 0.8;
+                    sheepBackA[i] += 0.8;
+                }
+                else
+                {
+                    sheepMoveA[i] -= 0.8;
+                    sheepFrontA[i] -= 0.8;
+                    sheepBackA[i] -= 0.8;
+                }
+            }
+
             lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
             glPopMatrix();
         }
@@ -124,7 +141,7 @@ void display()
 
     createBackground();
     showingIconSheep();
-    createTextLife();
+    createText();
 
     timeSecTemp = timeSec;
 

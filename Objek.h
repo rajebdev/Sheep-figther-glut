@@ -1106,7 +1106,7 @@ void displayText(float x, float y, char *text) {
     }
 }
 
-void createTextLife()
+void createText()
 {
     
     string lifeAtemp = int_to_str(lifeBarA);
@@ -1117,9 +1117,11 @@ void createTextLife()
     char textlifeB[lifeBtemp.length()+1];
     strcpy(textlifeB, lifeBtemp.c_str());
 
+    displayText(-77.5, -120, "PLAYER 1");
     displayText(0, -120, "PLAYER 1 : ");
     displayText(40, -120, textlifeA);
 
+    displayText(-77.5, 115, "PLAYER 2");
     displayText(0, 115, "PLAYER 2 : ");
     displayText(40, 115, textlifeB);
 

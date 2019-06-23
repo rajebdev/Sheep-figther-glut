@@ -181,3 +181,13 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
     }
     return false;
 }
+
+bool checkScore(bool sheepCol, int sheepPos)
+{
+    for (int i = 0; i < countSheepA; i++)
+    {
+        printf("%d ku sayang dia\n", i);
+    }
+
+    return NULL;
+}
