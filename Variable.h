@@ -56,10 +56,10 @@ time_t timeSecTemp;
 // sheep array
 int *sheepPosA, *sheepModelA; 
 float *sheepMoveA, *sheepFrontA, *sheepBackA;
-bool *sheepLifeA;
+bool *sheepLifeA, *sheepMacetA;
 int *sheepPosB, *sheepModelB;
 float *sheepMoveB, *sheepFrontB, *sheepBackB;
-bool *sheepLifeB;
+bool *sheepLifeB, *sheepMacetB;
 
 // count sheep A B
 int countSheepA = 0;

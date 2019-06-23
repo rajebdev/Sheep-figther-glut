@@ -78,6 +78,15 @@ void kunci(unsigned char key, int x, int y)
         }
     }
 
+    if (key == 32)
+    {
+        if (lifeBarA <= 0 || lifeBarB <= 0)
+        {
+            startingGame();
+        }
+    }
+
+
     display();
 }
 

@@ -11,18 +11,24 @@ int getRandomSheep()
 
 void startingGame()
 {
+    lifeBarA = 100;
+    lifeBarB = 100;
+    srand(time(0));
     sheepPosA = new int[100];
     sheepModelA = new int[100];
     sheepMoveA = new float[100];
     sheepFrontA = new float[100];
     sheepBackA = new float[100];
     sheepLifeA = new bool[100];
+    sheepMacetA = new bool[100];
+
     sheepPosB = new int[100];
     sheepModelB = new int[100];
     sheepMoveB = new float[100];
     sheepFrontB = new float[100];
     sheepBackB = new float[100];
     sheepLifeB = new bool[100];
+    sheepMacetB = new bool[100];
     
     sheepA1 = getRandomSheep();
     sheepA2 = getRandomSheep();
@@ -64,7 +70,7 @@ bool lifeChecker(bool sheepCol, int sheepMod, float sheepMove)
     }
     else if (sheepMod == 3)
     {
-        poin = 8;
+        poin = 80;
     }
     else if (sheepMod == 4)
     {
@@ -98,7 +104,7 @@ bool collisonChecker(bool sheepCol, int sheepMod, float sheepFront, int sheepPos
         while (!coll && i < countSheepB)
         {
             
-            if (sheepFrontB[i] != 0 && sheepPos == sheepPosB[i])
+            if (sheepFrontB[i] != 0 && sheepPos == sheepPosB[i] && sheepLifeB[i] == true)
             {
                 // if (timeSecTemp != timeSec)
                 // {
@@ -121,7 +127,7 @@ bool collisonChecker(bool sheepCol, int sheepMod, float sheepFront, int sheepPos
             // {
             //     printf("black check betwen %f and %f \n", sheepFront, sheepFrontA[i]);
             // }
-            if (sheepFrontA[i] != 0  && sheepPos == sheepPosA[i])
+            if (sheepFrontA[i] != 0  && sheepPos == sheepPosA[i] && sheepLifeA[i] == true)
             {
                 if (sheepFront < sheepFrontA[i])
                 {
@@ -145,7 +151,7 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
         while (!coll && i < index)
         {
             
-            if (sheepBackA[i] != 0 && sheepPos == sheepPosA[i] && sheepFront != sheepFrontA[i])
+            if (sheepBackA[i] != 0 && sheepPos == sheepPosA[i] && sheepFront != sheepFrontA[i]  && sheepLifeA[i] == true)
             {
                 // if (timeSecTemp != timeSec)
                 // {
@@ -164,7 +170,7 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
         while (!coll && i < index)
         {
             
-            if (sheepBackA[i] != 0 && sheepPos == sheepPosB[i] && sheepFront != sheepFrontB[i])
+            if (sheepBackA[i] != 0 && sheepPos == sheepPosB[i] && sheepFront != sheepFrontB[i] && sheepLifeB[i] == true)
             {
                 // if (timeSecTemp != timeSec)
                 // {
@@ -184,9 +190,74 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
 
 bool checkScore(bool sheepCol, int sheepPos)
 {
+    float sA = 0, sB = 0;
     for (int i = 0; i < countSheepA; i++)
     {
-        printf("%d ku sayang dia\n", i);
+        if (sheepPosA[i] == sheepPos && sheepLifeA[i] == true)
+        {
+            if (sheepModelA[i] == 1)
+            {
+                sA += 2;
+            }
+            else if (sheepModelA[i] == 2)
+            {
+                sA += 5;
+            }
+            else if (sheepModelA[i] == 3)
+            {
+                sA += 8;
+            }
+            else if (sheepModelA[i] == 4)
+            {
+                sA += 12;
+            }
+        }
+    }
+
+    for (int i = 0; i < countSheepB; i++)
+    {
+        if (sheepPosB[i] == sheepPos && sheepLifeB[i] == true)
+        {
+            if (sheepModelB[i] == 1)
+            {
+                sB += 2;
+            }
+            else if (sheepModelB[i] == 2)
+            {
+                sB += 5;
+            }
+            else if (sheepModelB[i] == 3)
+            {
+                sB += 8;
+            }
+            else if (sheepModelB[i] == 4)
+            {
+                sB += 12;
+            }
+        }
+    }
+    if (sA > sB)
+    {
+        if (sheepCol == white)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    else
+    {
+        if (sheepCol == white)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     return NULL;

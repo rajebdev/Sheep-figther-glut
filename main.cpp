@@ -95,6 +95,10 @@ void display()
                     sheepFrontA[i] += 0.8;
                     sheepBackA[i] += 0.8;
                 }
+                else
+                {
+                    
+                }
             }
             else
             {
@@ -105,15 +109,21 @@ void display()
                     sheepFrontA[i] += 0.8;
                     sheepBackA[i] += 0.8;
                 }
-                else
+                else if (cek == false)
                 {
                     sheepMoveA[i] -= 0.8;
                     sheepFrontA[i] -= 0.8;
                     sheepBackA[i] -= 0.8;
                 }
             }
-
-            lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
+            if (sheepMoveA[i] > 0)
+            {
+                lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
+            }
+            else if (sheepMoveA[i] < 0)
+            {
+                sheepLifeA[i] = false;
+            }
             glPopMatrix();
         }
     }
@@ -133,7 +143,31 @@ void display()
                     sheepBackB[i] -= 0.8;
                 }
             }
-            lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
+            else
+            {
+                bool cek = checkScore(black, sheepPosB[i]);
+                if (cek == true)
+                {
+                    sheepMoveB[i] -= 0.8;
+                    sheepFrontB[i] -= 0.8;
+                    sheepBackB[i] -= 0.8;
+                }
+                else if (cek == false)
+                {
+                    sheepMoveB[i] += 0.8;
+                    sheepFrontB[i] += 0.8;
+                    sheepBackB[i] += 0.8;
+                }
+            }
+            // printf("move B = %f\n", sheepMoveB[i]);
+            if (sheepMoveB[i] < 0)
+            {
+                lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
+            }
+            else if (sheepMoveB[i] > 0)
+            {
+                sheepLifeB[i] = false;
+            }
             glPopMatrix();
         }
     }
@@ -142,6 +176,15 @@ void display()
     createBackground();
     showingIconSheep();
     createText();
+
+    if (lifeBarA <= 0)
+    {
+        createWinB();
+    }
+    else if (lifeBarB <= 0)
+    {
+        createWinA();
+    }
 
     timeSecTemp = timeSec;
 

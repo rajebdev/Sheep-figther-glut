@@ -1173,3 +1173,26 @@ float getBackObjek(int sheepMod)
     
     return posTemp;
 }
+
+void createWinA()
+{
+    glPushMatrix();
+
+    // make bacground
+    makeBox(0, 0, 30, 250, 5, 300, 1, 1, 1, 0.7);
+    displayText(-20, 0, "Player 1 Win");
+
+    glPopMatrix();
+}
+
+
+void createWinB()
+{
+    glPushMatrix();
+
+    // make bacground
+    makeBox(0, 0, 30, 250, 5,300, 1, 1, 1, 0.7);
+    displayText(-20, 0, "Player 1 Win");
+
+    glPopMatrix();
+}
