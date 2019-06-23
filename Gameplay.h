@@ -70,7 +70,7 @@ bool lifeChecker(bool sheepCol, int sheepMod, float sheepMove)
     }
     else if (sheepMod == 3)
     {
-        poin = 80;
+        poin = 8;
     }
     else if (sheepMod == 4)
     {
@@ -188,12 +188,12 @@ bool checkCollisionSelf(bool sheepCol, int index, int sheepMod, float sheepFront
     return false;
 }
 
-bool checkScore(bool sheepCol, int sheepPos)
+int checkScore(bool sheepCol, int sheepPos)
 {
     float sA = 0, sB = 0;
     for (int i = 0; i < countSheepA; i++)
     {
-        if (sheepPosA[i] == sheepPos && sheepLifeA[i] == true)
+        if (sheepPosA[i] == sheepPos && sheepLifeA[i] == true && sheepMacetA[i] == true)
         {
             if (sheepModelA[i] == 1)
             {
@@ -216,7 +216,7 @@ bool checkScore(bool sheepCol, int sheepPos)
 
     for (int i = 0; i < countSheepB; i++)
     {
-        if (sheepPosB[i] == sheepPos && sheepLifeB[i] == true)
+        if (sheepPosB[i] == sheepPos && sheepLifeB[i] == true && sheepMacetB[i] == true)
         {
             if (sheepModelB[i] == 1)
             {
@@ -236,15 +236,22 @@ bool checkScore(bool sheepCol, int sheepPos)
             }
         }
     }
-    if (sA > sB)
+
+    // printf("check betwen %f and %f", sA, sB);
+
+    if (sA == sB)
+    {
+        return 0;
+    }
+    else if (sA > sB)
     {
         if (sheepCol == white)
         {
-            return true;
+            return 1;
         }
         else
         {
-            return false;
+            return -1;
         }
 
     }
@@ -252,13 +259,13 @@ bool checkScore(bool sheepCol, int sheepPos)
     {
         if (sheepCol == white)
         {
-            return false;
+            return -1;
         }
         else
         {
-            return true;
+            return 1;
         }
     }
 
-    return NULL;
+    return 0;
 }

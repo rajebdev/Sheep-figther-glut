@@ -83,6 +83,7 @@ void display()
     {
         if (sheepLifeA[i] == true)
         {
+           int cek = 1;
             glTranslated(animasiMove, 0, 0);
             glPushMatrix();
             glTranslated(0, sheepMoveA[i],0);
@@ -97,30 +98,36 @@ void display()
                 }
                 else
                 {
-                    
+                    sheepMacetA[i] = true;
                 }
             }
             else
-            {
-                bool cek = checkScore(white, sheepPosA[i]);
-                if (cek == true)
+            {   
+                sheepMacetA[i] = true;
+                cek = checkScore(white, sheepPosA[i]);
+                if (cek == 1)
                 {
                     sheepMoveA[i] += 0.8;
                     sheepFrontA[i] += 0.8;
                     sheepBackA[i] += 0.8;
                 }
-                else if (cek == false)
+                else if (cek == -1)
                 {
                     sheepMoveA[i] -= 0.8;
                     sheepFrontA[i] -= 0.8;
                     sheepBackA[i] -= 0.8;
                 }
+                else if (cek == 0)
+                {
+                    sheepMoveA[i] += 0;
+                    sheepFrontA[i] += 0;
+                    sheepBackA[i] += 0;
+                }
             }
-            if (sheepMoveA[i] > 0)
-            {
-                lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
-            }
-            else if (sheepMoveA[i] < 0)
+            // printf("move A = %f\n", sheepFrontA[i]);
+            lifeChecker(white, sheepModelA[i], sheepMoveA[i]) == true ? sheepLifeA[i] = false : sheepLifeA[i] = true;
+            
+            if (cek == -1 && sheepFrontA[i] < -125)
             {
                 sheepLifeA[i] = false;
             }
@@ -131,6 +138,7 @@ void display()
     {
         if (sheepLifeB[i] == true)
         {
+            int cek = true;;
             glPushMatrix();
             glTranslated(0, sheepMoveB[i],0);
             walkSheepBlack(sheepModelB[i], sheepPosB[i]);
@@ -145,26 +153,31 @@ void display()
             }
             else
             {
-                bool cek = checkScore(black, sheepPosB[i]);
-                if (cek == true)
+                sheepMacetB[i] = true;
+                cek = checkScore(black, sheepPosB[i]);
+                if (cek == 1)
                 {
                     sheepMoveB[i] -= 0.8;
                     sheepFrontB[i] -= 0.8;
                     sheepBackB[i] -= 0.8;
                 }
-                else if (cek == false)
+                else if (cek == -1)
                 {
                     sheepMoveB[i] += 0.8;
                     sheepFrontB[i] += 0.8;
                     sheepBackB[i] += 0.8;
                 }
+                else if (cek == 0)
+                {
+                    sheepMoveB[i] += 0;
+                    sheepFrontB[i] += 0;
+                    sheepBackB[i] += 0;
+                }
             }
-            // printf("move B = %f\n", sheepMoveB[i]);
-            if (sheepMoveB[i] < 0)
-            {
-                lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
-            }
-            else if (sheepMoveB[i] > 0)
+            // printf("move B = %f\n", sheepFrontB[i]);
+            lifeChecker(black, sheepModelB[i], sheepMoveB[i]) == true ? sheepLifeB[i] = false : sheepLifeB[i] = true;
+            
+            if (cek == -1  && sheepFrontB[i] > 125)
             {
                 sheepLifeB[i] = false;
             }

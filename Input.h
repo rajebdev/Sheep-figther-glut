@@ -53,6 +53,7 @@ void kunci(unsigned char key, int x, int y)
             sheepPosA[countSheepA] = key-49;
             sheepMoveA[countSheepA] = 0;
             sheepLifeA[countSheepA] = true;
+            sheepMacetA[countSheepA] = false;
             sheepFrontA[countSheepA] = -165+getFrontObjek(sheepA1);
             sheepBackA[countSheepA] = -165-getBackObjek(sheepA1);
             loadTimeA = 10;
@@ -69,6 +70,7 @@ void kunci(unsigned char key, int x, int y)
             key == 48 ? sheepPosB[countSheepB] = 0 : sheepPosB[countSheepB] = key-54;
             sheepMoveB[countSheepB] = 0;
             sheepLifeB[countSheepB] = true;
+            sheepMacetB[countSheepB] = false;
             sheepFrontB[countSheepB] = 165-getFrontObjek(sheepB1);
             sheepBackB[countSheepB] = 165+getBackObjek(sheepB1);
             loadTimeB = 10;
