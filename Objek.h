@@ -1196,3 +1196,28 @@ void createWinB()
 
     glPopMatrix();
 }
+
+
+void printHelp()
+{
+    printf("Press :\n");
+    printf("\nPlayer 1 :\n");
+    printf("1 - 5 = untuk mengeluarkan sheep\n");
+    printf("\nPlayer 2 :\n");
+    printf("6 - 0 = untuk mengeluarkan sheep\n\n");
+    printf("\nGameplay :\n");
+    printf("Space = untuk restart game\n");
+    printf("m = untuk menampilkan tampilan win\n");
+    printf("\nRotation :\n");
+    printf("a = untuk Memutar sumbu x anticlockwise\n");
+    printf("d = untuk Memutar sumbu x clockwise\n");
+    printf("w = untuk Memutar sumbu y anticlockwise\n");
+    printf("s = untuk Memutar sumbu y clockwise\n");
+    printf("z = untuk Memutar sumbu z anticlockwise\n");
+    printf("x = untuk Memutar sumbu z clockwise\n");
+    printf("\nCamera view :\n");
+    printf("Arrow UP    = untuk melakukan zoom in camera\n");
+    printf("Arrow Down  = untuk melakukan zoom out camera\n");
+    printf("Arrow LEFT  = untuk melakukan rotasi camera ke kiri\n");
+    printf("Arrow RIGHT = untuk melakukan rotasi camera ke kanan\n");
+}
