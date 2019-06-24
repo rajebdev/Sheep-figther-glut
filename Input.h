@@ -88,6 +88,11 @@ void kunci(unsigned char key, int x, int y)
         }
     }
 
+    if (key == 'm')
+    {
+        lifeBarA = 0;
+    }
+
 
     display();
 }
