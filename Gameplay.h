@@ -13,6 +13,8 @@ void startingGame()
 {
     lifeBarA = 100;
     lifeBarB = 100;
+    loadTimeA = 0;
+    loadTimeB = 0;
     srand(time(0));
     sheepPosA = new int[100];
     sheepModelA = new int[100];
